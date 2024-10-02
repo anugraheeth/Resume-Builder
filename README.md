@@ -37,5 +37,9 @@ SimplyResume is a simple, interactive web-based resume builder. Users can input 
 - Improved styling for a more polished resume layout.
 - Option to save and load resume data.
 
+
+## Live Demo
+
+[Click here to see the live demo](https://anugraheeth.github.io/Resume-Builder/)
 ## License
 This project is licensed under the MIT License.
