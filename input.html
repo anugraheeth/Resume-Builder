@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="frm">
+    <header class="frm">
         <nav class="navbar">
             <div class="navcontainer">
                 <div class="logo">
@@ -14,179 +14,205 @@
                         <h1>SimplyResume</h1>
                     </a>
                 </div>
-                <div class="navbutton">
-                    <button>
-                        CREATE
-                    </button>
-                </div>
             </div>
-           </nav>
-        <div class="container resume">
-            <form action="" class="data">
-                <div class="about">
-                    <div class="heading" id="about">
-                        <h4>About Section</h4>
+        </nav>
+    </header>
+    <main class="container resume">
+        <form action="" class="data" id="data">
+
+            <!-- About Section -->
+            <section class="wrapper about">
+                <h2>About Section</h2>
+                <fieldset class="names">
+                    <legend>Personal Information</legend>
+                    <div class="col">
+                        <label for="name">First Name</label>
+                        <input type="text" id="name" name="First Name">
                     </div>
-                    <div class="names">
-                        <div class="col">
-                            <label for="name">First Name</label>
-                            <input type="text" id="name">
-                        </div>
-                        <div class="col">
-                            <label for="middle">Middle Name</label>
-                            <input type="text" id="middle">
-                        </div>
-                        <div class="col">
-                            <label for="last">Last Name</label>
-                            <input type="text" id="last">
-                        </div>
+                    <div class="col">
+                        <label for="middle">Middle Name</label>
+                        <input type="text" id="middle" name="Middle Name">
                     </div>
-                    <div class="names one">
-                        <div class="col">
-                            <label for="name">Your Image</label>
-                            <input type="file" id="pic">
-                        </div>
-                        <div class="col">
-                            <label for="middle">Designation</label>
-                            <input type="text" id="designation">
-                        </div>
-                        <div class="col">
-                            <label for="last">Address</label>
-                            <input type="text" id="address">
-                        </div>
+                    <div class="col">
+                        <label for="last">Last Name</label>
+                        <input type="text" id="last" name="Last Name">
                     </div>
-                    <div class="names two">
-                        <div class="col">
-                            <label for="name">Email</label>
-                            <input type="email" id="email">
-                        </div>
-                        <div class="col">
-                            <label for="middle">Phone</label>
-                            <input type="text" id="phone">
-                        </div>
-                        <div class="col">
-                            <label for="last">Summay</label>
-                            <input type="text" id="aboutme">
-                        </div>
+                    <div class="col">
+                        <label for="pic">Your Image</label>
+                        <input type="file" id="pic" name="Profile Image">
                     </div>
-                </div>
-                <div class="about ">
+                    <div class="col">
+                        <label for="designation">Designation</label>
+                        <input type="text" id="designation" name="Designation">
+                    </div>
+                    <div class="col">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="Address">
+                    </div>
+                    <div class="col">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email">
+                    </div>
+                    <div class="col">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="Phone">
+                    </div>
+                    <div class="col">
+                        <label for="aboutme">Summary</label>
+                        <input type="text" id="aboutme" name="Summary">
+                    </div>
+                </fieldset>
+            </section>
+
+            <!-- Achievements Section -->
+            <section class="wrapper achievements">
+                <h2>Achievements</h2>
+                <fieldset class="names">
                     <div class="heading">
-                        <h4>Achievements</h4>
+                        <legend>List your Achievements</legend>
+                        <button id="addachiev" type="button">Add Achievement</button>
                     </div>
-                    <div class="names " id="achieve">
+                    <div id="achieve">
                         <div class="col">
-                            <label for="name">Title</label>
-                            <input type="text" id="atitle">
+                            <label for="atitle0">Title</label>
+                            <input type="text" id="atitle0" name="Title">
                         </div>
                         <div class="col">
-                            <label for="middle">Description</label>
-                            <input type="text" id="adesc">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="about">
-                    <div class="heading " >
-                        <h4>Experience</h4>
-                    </div>
-                    <div class="names" >
-                        <div class="col">
-                            <label for="name">Title</label>
-                            <input type="text" id="exptitle">
-                        </div>
-                        <div class="col">
-                            <label for="middle">Company/Organization</label>
-                            <input type="text" id="company">
-                        </div>
-                        <div class="col">
-                            <label for="last">Location</label>
-                            <input type="text" id="loc">
+                            <label for="adesc0">Description</label>
+                            <input type="text" id="adesc0" name="Description">
                         </div>
                     </div>
-                    <div class="names one">
-                        <div class="col">
-                            <label for="name">Start Date</label>
-                            <input type="date" id="expstart">
-                        </div>
-                        <div class="col">
-                            <label for="middle">End Date</label>
-                            <input type="date" id="expend">
-                        </div>
-                        <div class="col">
-                            <label for="last">Description</label>
-                            <input type="text" id="expdesc">
-                        </div>
-                    </div>
-                </div>
-                <div class="about">
+                </fieldset>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="wrapper experience">
+                <h2>Experience</h2>
+                <fieldset class="names">
                     <div class="heading">
-                        <h4>Education</h4>
+                        <legend>Work Experience</legend>
+                        <button id="addexp" type="button">Add Experience</button>
                     </div>
-                    <div class="names" id="edu">
-                        <div class="col">
-                            <label for="name">School</label>
-                            <input type="text" id="eduname">
-                        </div>
-                        <div class="col">
-                            <label for="middle">Degree</label>
-                            <input type="text" id="qualify">
-                        </div>
-                        <div class="col">
-                            <label for="last">City</label>
-                            <input type="text" id="city">
+                    <div id="experience-container">
+                        <div class="names">
+                            <div class="col">
+                                <label for="exptitle0">Title</label>
+                                <input type="text" id="exptitle0" name="Title">
+                            </div>
+                            <div class="col">
+                                <label for="company0">Company/Organization</label>
+                                <input type="text" id="company0" name="Company">
+                            </div>
+                            <div class="col">
+                                <label for="loc0">Location</label>
+                                <input type="text" id="loc0" name="Location">
+                            </div>
+                            <div class="col">
+                                <label for="expstart0">Start Date</label>
+                                <input type="date" id="expstart0" name="Start Date">
+                            </div>
+                            <div class="col">
+                                <label for="expend0">End Date</label>
+                                <input type="date" id="expend0" name="End Date">
+                            </div>
+                            <div class="col">
+                                <label for="expdesc0">Description</label>
+                                <input type="text" id="expdesc0" name="Description">
+                            </div>
                         </div>
                     </div>
-                    <div class="names one">
-                        <div class="col">
-                            <label for="name">Start Date</label>
-                            <input type="date" id="edustart">
-                        </div>
-                        <div class="col">
-                            <label for="middle">End Date</label>
-                            <input type="date" id="eduend">
-                        </div>
-                        <div class="col">
-                            <label for="last">Description</label>
-                            <input type="text" id="edudesc">
-                        </div>
-                    </div>
-                </div>
-                <div class="about">
+                </fieldset>
+            </section>
+
+            <!-- Education Section -->
+            <section class="wrapper education">
+                <h2>Education</h2>
+                <fieldset class="names">
                     <div class="heading">
-                        <h4>Projects</h4>
+                        <legend>Educational Background</legend>
+                        <button id="addedu" type="button">Add Education</button>
                     </div>
-                    <div class="names" id="project">
-                        <div class="col">
-                            <label for="pname">Project Name</label>
-                            <input type="text" id="pname">
-                        </div>
-                        <div class="col">
-                            <label for="plink">Project Link</label>
-                            <input type="text" id="plink">
-                        </div>
-                        <div class="col">
-                            <label for="pdesc">Description</label>
-                            <input type="text" id="pdesc">
+                    <div id="edu">
+                        <div class="names">
+                            <div class="col">
+                                <label for="eduname0">School</label>
+                                <input type="text" id="eduname0" name="School">
+                            </div>
+                            <div class="col">
+                                <label for="qualify0">Degree</label>
+                                <input type="text" id="qualify0" name="Degree">
+                            </div>
+                            <div class="col">
+                                <label for="city0">City</label>
+                                <input type="text" id="city0" name="City">
+                            </div>
+                            <div class="col">
+                                <label for="edustart0">Start Date</label>
+                                <input type="date" id="edustart0" name="Start Date">
+                            </div>
+                            <div class="col">
+                                <label for="eduend0">End Date</label>
+                                <input type="date" id="eduend0" name="End Date">
+                            </div>
+                            <div class="col">
+                                <label for="edudesc0">Description</label>
+                                <input type="text" id="edudesc0" name="Description">
+                            </div>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="about">
+                </fieldset>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="wrapper projects">
+                <h2>Projects</h2>
+                <fieldset class="names">
                     <div class="heading">
-                        <h4>Skills</h4>
+                        <legend>Projects Undertaken</legend>
+                        <button id="idpro" type="button">Add Project</button>
                     </div>
-                    <div class="names" id="skill">
-                        <div class="col">
-                            <label for="name">Skills</label>
-                            <input type="text" id="sname">
+                    <div id="project">
+                        <div class="names">
+                            <div class="col">
+                                <label for="pname0">Project Name</label>
+                                <input type="text" id="pname0" name="Project">
+                            </div>
+                            <div class="col">
+                                <label for="plink0">Project Link</label>
+                                <input type="text" id="plink0" name="Project Link">
+                            </div>
+                            <div class="col">
+                                <label for="pdesc0">Description</label>
+                                <input type="text" id="pdesc0" name="Description">
+                            </div>
                         </div>
                     </div>
-                    
-                </div>
-                </div>
-            </form>
-        </div>
-    </div>
+                </fieldset>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="wrapper skills">
+                <h2>Skills</h2>
+                <fieldset class="names">
+                    <div class="heading">
+                        <legend>Skills</legend>
+                        <button id="addskill" type="button">Add Skill</button>
+                    </div>
+                    <div id="skill">
+                        <div class="names">
+                            <div class="col">
+                                <label for="sname0">Skill</label>
+                                <input type="text" id="sname0" name="Skills">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+
+            <!-- Submit Button -->
+            <button type="submit" class="navbutton">CREATE</button>
+        </form>
+    </main>
+    <script src="input22.js"></script>
 </body>
 </html>
