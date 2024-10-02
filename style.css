@@ -26,14 +26,15 @@ a {
 }
 
 .navbutton{
-    margin-top: 5px;
+    margin: 1% 5%;
 }
-.navbutton button{
+.navbutton{
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
+    max-width: max-content;
 }
-.navbutton button:hover{
+.navbutton:hover{
     background-color: white;
     color: black;
     transition: 10ms ease;
@@ -50,6 +51,26 @@ a {
     justify-content: center;
     align-items: center;
 }
+
+.heading{
+    grid-column: span 3;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 2px;
+}
+
+.heading button{
+    font-size: 18px;
+    padding: 1px 5px;
+    background-color: white;
+    color: black;
+}
+
+.heading button:hover{
+    background-color: rgb(83, 83, 83);
+    color: black;
+}
+
 .container{
     margin: 30px;
     padding: 25px; 
@@ -126,7 +147,7 @@ button{
 }
 
 
-.about{
+.wrapper{
     margin: 20px 0px;
     width: 100%;
     padding: 10px 20px; 
@@ -137,15 +158,14 @@ button{
 
 .names{
     margin: 0;
-    display: flex;
-    gap: 60px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    padding: 25px;
     width: 100%;
     margin-bottom: 20px;
 }
 
-.col{
-    display: grid;
-}
 .col input{
     margin-top: 5px;
     width: 400px;
@@ -161,25 +181,48 @@ button{
     padding-top: 2px;
 }
 
-@media (max-width:600px) {
+ @media (max-width:900px) {
     .image img{
         width:350px;
     }
     .container h2{
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     .sectiontwo h3{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+    }
+    .col{
+        display: grid;
+        font-size: 10px;
+    }
+    .col input{
+        width: 200px;
     }
     .names{
         display: grid;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap:7px;
+        padding: 10px;
     }
-    .col input{
-        width: 280px;
+    .resume{
+        display: block;
+        width: 100%;
+        justify-content: center;
+        padding: 5px 15px;
+        margin: 0;
+    }
+    legend{
+    font-size: 15px;
+    }
+    .heading button{
+        font-size: 8px;
+        padding: 1px 3px;
+    }
     
+    .frm{
+        margin: 5px;
     }
-}
+} 
 
 .contain{
     display: flex;
