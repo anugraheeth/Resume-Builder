@@ -1,3 +1,4 @@
+let about = [];
 let achievements = [];
 let experiences = [];
 let educations = [];
@@ -228,7 +229,27 @@ document.getElementById('addskill').addEventListener('click', function(e) {
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    about =[]
 
+    const name = document.getElementById('name').value
+    const middle = document.getElementById('middle').value
+    const last = document.getElementById('last').value
+    const designation = document.getElementById('designation').value
+    const address = document.getElementById('address').value
+    const email = document.getElementById('email').value
+    const phone = document.getElementById('phone').value
+    const summary  = document.getElementById('aboutme').value
+    
+    if(midde != ''){
+        about.push({name: name,middle: middle,last: last,designation: designation,address: address,email: email,phone: phone,summary: summary})
+    }
+    else{
+        about.push({name: name,last: last,designation: designation,address: address,email: email,phone: phone,summary: summary})
+    }
+
+    
+
+    
     achievements = [];
     document.querySelectorAll('#achieve .col').forEach((col, index) => {
         if (index % 2 === 0) {
@@ -283,6 +304,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         skills.push({ skill });
     });
 
+    console.log('About : ',about);
     console.log('Achievements:', achievements);
     console.log('Experiences:', experiences);
     console.log('Educations:', educations);
