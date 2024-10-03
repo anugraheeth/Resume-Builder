@@ -240,7 +240,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const phone = document.getElementById('phone').value
     const summary  = document.getElementById('aboutme').value
     
-    if(midde != ''){
+    if(middle != ''){
         about.push({name: name,middle: middle,last: last,designation: designation,address: address,email: email,phone: phone,summary: summary})
     }
     else{
