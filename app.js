@@ -1,4 +1,4 @@
-let about = [];
+let about = []
 let achievements = [];
 let experiences = [];
 let educations = [];
@@ -31,7 +31,7 @@ document.getElementById('addachiev').addEventListener('click', function(e) {
     descInput.id = 'adesc' + index;
     descInput.name = 'Description';
 
-
+    //  remove button
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
@@ -51,6 +51,7 @@ document.getElementById('addachiev').addEventListener('click', function(e) {
     achieveContainer.appendChild(removeButton);
 });
 
+
 document.getElementById('addexp').addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -59,7 +60,7 @@ document.getElementById('addexp').addEventListener('click', function(e) {
 
     const fields = [
         { label: 'Title', id: 'exptitle' + index, name: 'Title', type: 'text' },
-        { label: 'Company/Organization', id: 'company' + index, name: 'Company', type: 'text' },
+        { label: 'origin/Organization', id: 'origin' + index, name: 'origin', type: 'text' },
         { label: 'Location', id: 'loc' + index, name: 'Location', type: 'text' },
         { label: 'Start Date', id: 'expstart' + index, name: 'Start Date', type: 'date' },
         { label: 'End Date', id: 'expend' + index, name: 'End Date', type: 'date' },
@@ -82,6 +83,7 @@ document.getElementById('addexp').addEventListener('click', function(e) {
         experienceContainer.appendChild(div);
     });
 
+   
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
@@ -99,6 +101,7 @@ document.getElementById('addexp').addEventListener('click', function(e) {
     experienceContainer.appendChild(removeButton);
 });
 
+
 document.getElementById('addedu').addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -107,8 +110,8 @@ document.getElementById('addedu').addEventListener('click', function(e) {
 
     const fields = [
         { label: 'School', id: 'eduname' + index, name: 'School', type: 'text' },
-        { label: 'Degree', id: 'qualify' + index, name: 'Degree', type: 'text' },
-        { label: 'City', id: 'city' + index, name: 'City', type: 'text' },
+        { label: 'origin', id: 'qualify' + index, name: 'origin', type: 'text' },
+        { label: 'location', id: 'location' + index, name: 'location', type: 'text' },
         { label: 'Start Date', id: 'edustart' + index, name: 'Start Date', type: 'date' },
         { label: 'End Date', id: 'eduend' + index, name: 'End Date', type: 'date' },
         { label: 'Description', id: 'edudesc' + index, name: 'Description', type: 'text' }
@@ -130,7 +133,6 @@ document.getElementById('addedu').addEventListener('click', function(e) {
         eduContainer.appendChild(div);
     });
 
-
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
@@ -147,6 +149,7 @@ document.getElementById('addedu').addEventListener('click', function(e) {
 
     eduContainer.appendChild(removeButton);
 });
+
 
 document.getElementById('idpro').addEventListener('click', function(e) {
     e.preventDefault();
@@ -176,6 +179,7 @@ document.getElementById('idpro').addEventListener('click', function(e) {
         projectContainer.appendChild(div);
     });
 
+  
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
@@ -192,6 +196,7 @@ document.getElementById('idpro').addEventListener('click', function(e) {
 
     projectContainer.appendChild(removeButton);
 });
+
 
 document.getElementById('addskill').addEventListener('click', function(e) {
     e.preventDefault();
@@ -213,12 +218,13 @@ document.getElementById('addskill').addEventListener('click', function(e) {
     div.appendChild(input);
     skillContainer.appendChild(div);
 
+
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
     removeButton.addEventListener('click', function(e) {
         e.preventDefault();
-        div.remove();
+        div.remove(); 
         removeButton.remove(); 
     });
 
@@ -229,85 +235,161 @@ document.getElementById('addskill').addEventListener('click', function(e) {
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    about =[]
 
-    const name = document.getElementById('name').value
-    const middle = document.getElementById('middle').value
-    const last = document.getElementById('last').value
-    const designation = document.getElementById('designation').value
-    const address = document.getElementById('address').value
-    const email = document.getElementById('email').value
-    const phone = document.getElementById('phone').value
-    const summary  = document.getElementById('aboutme').value
     
-    if(middle != ''){
-        about.push({name: name,middle: middle,last: last,designation: designation,address: address,email: email,phone: phone,summary: summary})
+       const name =  document.getElementById("name").value
+       const middle =  document.getElementById("middle").value
+       const last =  document.getElementById("last").value
+       const pic =  document.getElementById("pic").value
+       const designation =  document.getElementById("designation").value
+       const address =  document.getElementById("address").value
+       const email =  document.getElementById("email").value
+       const phone =  document.getElementById("phone").value
+       const summary =  document.getElementById("aboutme").value
+
+       aboutEntry = { name, middle, last, pic, designation, address, email, phone, summary}
+
+       if (Object.values(aboutEntry).some(value => value)) {
+        about.push(aboutEntry);
     }
-    else{
-        about.push({name: name,last: last,designation: designation,address: address,email: email,phone: phone,summary: summary})
-    }
 
-    
 
-    
+
+    // storee achievements
     achievements = [];
     document.querySelectorAll('#achieve .col').forEach((col, index) => {
         if (index % 2 === 0) {
             const title = col.querySelector('input').value;
             const description = col.nextElementSibling.querySelector('input').value;
-            achievements.push({ title, description });
+            if (title || description) { // Check if at least one is filled
+                achievements.push({ title, description });
+            }
         }
     });
 
-
+    // storee experiences
     experiences = [];
     document.querySelectorAll('#experience-container .col').forEach((col, index) => {
         if (index % 6 === 0) {
             const title = col.querySelector('input').value;
-            const company = col.nextElementSibling.querySelector('input').value;
+            const origin = col.nextElementSibling.querySelector('input').value;
             const location = col.nextElementSibling.nextElementSibling.querySelector('input').value;
             const startDate = col.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
             const endDate = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
             const description = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
-            experiences.push({ title, company, location, startDate, endDate, description });
+            if (title || origin || location || startDate || endDate || description) {
+                experiences.push({ title, origin, location, startDate, endDate, description });
+            }
         }
     });
 
+    // storee educations
     educations = [];
     document.querySelectorAll('#edu .col').forEach((col, index) => {
         if (index % 6 === 0) {
             const school = col.querySelector('input').value;
-            const degree = col.nextElementSibling.querySelector('input').value;
-            const city = col.nextElementSibling.nextElementSibling.querySelector('input').value;
+            const origin = col.nextElementSibling.querySelector('input').value;
+            const location = col.nextElementSibling.nextElementSibling.querySelector('input').value;
             const startDate = col.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
             const endDate = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
             const description = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
-            educations.push({ school, degree, city, startDate, endDate, description });
+            if (school || origin || location || startDate || endDate || description) {
+                educations.push({ school, origin, location, startDate, endDate, description });
+            }
         }
     });
 
-
+    // storee projects
     projects = [];
     document.querySelectorAll('#project .col').forEach((col, index) => {
         if (index % 3 === 0) {
             const projectName = col.querySelector('input').value;
             const projectLink = col.nextElementSibling.querySelector('input').value;
             const projectDescription = col.nextElementSibling.nextElementSibling.querySelector('input').value;
-            projects.push({ projectName, projectLink, projectDescription });
+            if (projectName || projectLink || projectDescription) {
+                projects.push({ projectName, projectLink, projectDescription });
+            }
         }
     });
 
-
+    // storee skills
     skills = [];
     document.querySelectorAll('#skill .col').forEach((col) => {
         const skill = col.querySelector('input').value;
-        skills.push({ skill });
+        if (skill) {
+            skills.push({ skill });
+        }
     });
 
-    console.log('About : ',about);
+    console.log('About : ',about)
     console.log('Achievements:', achievements);
     console.log('Experiences:', experiences);
     console.log('Educations:', educations);
     console.log('Projects:', projects);
     console.log('Skills:', skills);
+
+
+    generateCV()
 });
+
+
+
+
+
+function generateCV() {
+    const cvSections = [];
+
+
+    cvSections.push({
+        title: "About",
+        items : about
+    })
+
+    // to avoid zeroe enty
+    if (achievements.length > 0) {
+        cvSections.push({
+            title: "Achievements",
+            items: achievements
+        });
+    }
+
+    if (experiences.length > 0) {
+        cvSections.push({
+            title: "Experiences",
+            items: experiences
+        });
+    }
+
+    if (educations.length > 0) {
+        cvSections.push({
+            title: "Education",
+            items: educations
+        });
+    }
+
+    if (projects.length > 0) {
+        cvSections.push({
+            title: "Projects",
+            items: projects
+        });
+    }
+
+    if (skills.length > 0) {
+        cvSections.push({
+            title: "Skills",
+            items: skills
+        });
+    }
+
+   
+
+    console.log(cvSections);
+
+    //storing  data in ls
+
+    localStorage.setItem('data', JSON.stringify(cvSections));
+
+    window.location.href = 'cv.html';
+}
+
+    
