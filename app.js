@@ -247,6 +247,26 @@ document.getElementById('addskill').addEventListener('click', function(e) {
 });
 
 
+const pic =  document.getElementById("pic")
+
+let picture = ''
+
+pic.addEventListener('change',(e) =>{
+    console.log(e)
+    const image = pic.files[0]
+
+    const reader =new FileReader()
+
+
+    reader.addEventListener('load',()=>{
+        picture = reader.result
+    })
+    
+    reader.readAsDataURL(image)
+})
+
+
+
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -255,15 +275,15 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const name =  document.getElementById("name").value
     const middle =  document.getElementById("middle").value
     const last =  document.getElementById("last").value
-    const pic =  document.getElementById("pic").value
+    
     const designation =  document.getElementById("designation").value
     const address =  document.getElementById("address").value
     const email =  document.getElementById("email").value
     const phone =  document.getElementById("phone").value
     const summary =  document.getElementById("aboutme").value
 
-    aboutEntry = { name, middle, last, pic, designation, address, email, phone, summary}
-
+    aboutEntry = { name, middle, last, picture, designation, address, email, phone, summary}
+    
     if (Object.values(aboutEntry).some(value => value)) {
         about.push(aboutEntry);
     }
