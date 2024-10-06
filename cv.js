@@ -23,6 +23,7 @@ function renderCV(sections) {
             document.getElementById('address').innerHTML =  `<strong>Address : </strong>`+ about.address
             document.getElementById('designation').innerHTML = about.designation
             document.getElementById('summary').innerHTML =  about.summary 
+            document.getElementById('profile').src = about.picture
         }
         else if(section.title == 'Skills')
         {
@@ -139,6 +140,7 @@ function renderCV(sections) {
 
 
                 const itemDiv2 = document.createElement('p');
+                itemDiv2.id='dates'
                if(item.endDate ==''||item.endDate=="Invalid Date"){
                     item.endDate = 'present'
                     itemDiv2.textContent = item.startDate + ' to ' + item.endDate 
@@ -146,7 +148,7 @@ function renderCV(sections) {
                }
                 
                 if(item.startDate =="Invalid Date"){
-                    itemDiv2.innerHTML=``
+                    document.getElementById('dates').innerHTML=``
                 }
                     
 
