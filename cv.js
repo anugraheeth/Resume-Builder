@@ -2,25 +2,34 @@
  const data = JSON.parse(localStorage.getItem('data')) || [];
 
 function renderCV(sections) {
-    // const cvContainer = document.getElementById('cv');
-    // cvContainer.innerHTML = ``; 
+    let expected = ['About', 'Achievements', 'Experiences', 'Education', 'Projects', 'Skills'];
 
+    expected = expected.filter(name => {
+        return !data.some(section => section.title === name);
+    });
+
+    //console.log(expected)
+    expected.forEach(value =>{
+        const exp = document.getElementById(value)
+        exp.innerHTML=``
+    })
+    
     sections.forEach(section => {
         if(section.title=='About'){
             const about = section.items[0]
             document.getElementById('name').innerHTML = about.name+' '+about.middle+' '+about.last
-            document.getElementById('email').innerHTML = 'EmaIl : '+ about.email
-            document.getElementById('phone').innerHTML = 'Phone : '+ about.phone
-            document.getElementById('address').innerHTML =  'Address : '+ about.address
+            document.getElementById('email').innerHTML = `<strong>Email : </strong>`+ about.email
+            document.getElementById('phone').innerHTML = `<strong>Phone : </strong>`+ about.phone
+            document.getElementById('address').innerHTML =  `<strong>Address : </strong>`+ about.address
             document.getElementById('designation').innerHTML = about.designation
             document.getElementById('summary').innerHTML =  about.summary 
         }
         else if(section.title == 'Skills')
         {
             const skills = section.items
-            skills.innerHTML=``
-
-            const divee = document.getElementById('skill')
+            
+            const divee = document.getElementById('Skills')
+            divee.innerHTML=``
             const heading = document.createElement('h2')
             heading.textContent=section.title
             divee.appendChild(heading)
@@ -35,7 +44,7 @@ function renderCV(sections) {
             })
         }   
         else if(section.title == 'Achievements'){
-            const sectionDiv = document.getElementById('achievements');
+            const sectionDiv = document.getElementById('Achievements');
             sectionDiv.innerHTML=``
             const heading = document.createElement('h2');
             heading.textContent = section.title;
@@ -59,7 +68,7 @@ function renderCV(sections) {
 
         }
         else if(section.title == "Projects"){
-            const sectionDiv = document.getElementById('projects');
+            const sectionDiv = document.getElementById('Projects');
             sectionDiv.innerHTML=``
             const heading = document.createElement('h2');
             heading.textContent = section.title;
@@ -91,7 +100,7 @@ function renderCV(sections) {
         }
         // for education and experience
         else{
-            console.log(section)
+            // console.log(section)
             const sectionDiv = document.getElementById(section.title);
             sectionDiv.innerHTML=``
             const heading = document.createElement('h2');
@@ -130,13 +139,23 @@ function renderCV(sections) {
 
 
                 const itemDiv2 = document.createElement('p');
-                itemDiv2.textContent = item.startDate + ' to ' + item.endDate 
-                sectionDiv.appendChild(itemDiv2);
+               if(item.endDate ==''||item.endDate=="Invalid Date"){
+                    item.endDate = 'present'
+                    itemDiv2.textContent = item.startDate + ' to ' + item.endDate 
+                    sectionDiv.appendChild(itemDiv2);
+               }
+                
+                if(item.startDate =="Invalid Date"){
+                    itemDiv2.innerHTML=``
+                }
+                    
 
             })
         }
        
     });
+
+
 }
 
 renderCV(data)
