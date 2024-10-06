@@ -5,6 +5,21 @@ let educations = [];
 let projects = [];
 let skills = [];
 
+
+//function to convert  date yyy-mm-dd to m-yy
+
+function formatDate(dateString) {
+    // Create a new Date object
+    const date = new Date(dateString);
+    
+    // Options for formatting
+    const options = { month: 'short', year: '2-digit' };
+    
+    // Use toLocaleDateString to format the date
+    return date.toLocaleDateString('en-US', options).replace(",", ""); // Remove the comma
+}
+
+
 document.getElementById('addachiev').addEventListener('click', function(e) {
     e.preventDefault();
     
@@ -83,7 +98,7 @@ document.getElementById('addexp').addEventListener('click', function(e) {
         experienceContainer.appendChild(div);
     });
 
-   
+
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
@@ -179,7 +194,7 @@ document.getElementById('idpro').addEventListener('click', function(e) {
         projectContainer.appendChild(div);
     });
 
-  
+
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('remove-btn');
@@ -237,19 +252,19 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 
     
-       const name =  document.getElementById("name").value
-       const middle =  document.getElementById("middle").value
-       const last =  document.getElementById("last").value
-       const pic =  document.getElementById("pic").value
-       const designation =  document.getElementById("designation").value
-       const address =  document.getElementById("address").value
-       const email =  document.getElementById("email").value
-       const phone =  document.getElementById("phone").value
-       const summary =  document.getElementById("aboutme").value
+    const name =  document.getElementById("name").value
+    const middle =  document.getElementById("middle").value
+    const last =  document.getElementById("last").value
+    const pic =  document.getElementById("pic").value
+    const designation =  document.getElementById("designation").value
+    const address =  document.getElementById("address").value
+    const email =  document.getElementById("email").value
+    const phone =  document.getElementById("phone").value
+    const summary =  document.getElementById("aboutme").value
 
-       aboutEntry = { name, middle, last, pic, designation, address, email, phone, summary}
+    aboutEntry = { name, middle, last, pic, designation, address, email, phone, summary}
 
-       if (Object.values(aboutEntry).some(value => value)) {
+    if (Object.values(aboutEntry).some(value => value)) {
         about.push(aboutEntry);
     }
 
@@ -274,10 +289,10 @@ document.querySelector('form').addEventListener('submit', function(e) {
             const title = col.querySelector('input').value;
             const origin = col.nextElementSibling.querySelector('input').value;
             const location = col.nextElementSibling.nextElementSibling.querySelector('input').value;
-            const startDate = col.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
-            const endDate = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
+            const startDate = formatDate(col.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value);
+            const endDate = formatDate(col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value);
             const description = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
-            if (title || origin || location || startDate || endDate || description) {
+            if (title || origin || location ||  description) {
                 experiences.push({ title, origin, location, startDate, endDate, description });
             }
         }
@@ -290,10 +305,10 @@ document.querySelector('form').addEventListener('submit', function(e) {
             const school = col.querySelector('input').value;
             const origin = col.nextElementSibling.querySelector('input').value;
             const location = col.nextElementSibling.nextElementSibling.querySelector('input').value;
-            const startDate = col.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
-            const endDate = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
+            const startDate = formatDate(col.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value);
+            const endDate = formatDate(col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value);
             const description = col.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('input').value;
-            if (school || origin || location || startDate || endDate || description) {
+            if (school || origin || location || description) {
                 educations.push({ school, origin, location, startDate, endDate, description });
             }
         }
@@ -381,7 +396,7 @@ function generateCV() {
         });
     }
 
-   
+
 
     console.log(cvSections);
 
