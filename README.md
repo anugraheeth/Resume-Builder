@@ -1,5 +1,5 @@
 
-# SimplyResume - Resume Builder App
+# SimplyResume - Resume Builder App (Live)
 
 SimplyResume is a simple, interactive web-based resume builder. Users can input their details in a structured form, dynamically add sections for achievements, experience, education, projects, and skills, and generate a complete resume.
 
