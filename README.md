@@ -1,7 +1,14 @@
-
 # SimplyResume - Resume Builder App (Live)
 
 SimplyResume is a simple, interactive web-based resume builder. Users can input their details in a structured form, dynamically add sections for achievements, experience, education, projects, and skills, and generate a complete resume.
+<br>
+
+<p align="center">
+  <a href ="https://anugraheeth.github.io/Resume-Builder" >
+  <img src="assets/images/Resume.png" width="500" />
+  <img src = "assets/images/Resume 2.png" width = "500" />
+  </a>
+</p>
 
 ## Features
 - **User-Friendly Interface**: Easily fill in sections such as personal details, achievements, work experience, and skills.
